@@ -53,7 +53,7 @@ export const candidateConfig: CandidateConfig = {
   
   // WhatsApp Contact Configuration
   // Configurable phone number for direct student inquiries and constructive feedback
-  whatsappNumber: "2348148967926",
+  whatsappNumber: "2348051780169",
   email: "ipesolasulaiman@gmail.com",
   portfolioUrl: "https://claritydigital.academy",
 
