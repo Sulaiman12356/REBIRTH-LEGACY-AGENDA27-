@@ -11,80 +11,76 @@ import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
 import { AboutSection } from "./components/AboutSection";
 import { JourneySection } from "./components/JourneySection";
+import { VisionSection } from "./components/VisionSection";
 import { AgendaSection } from "./components/AgendaSection";
+import { OpportunitiesSection } from "./components/OpportunitiesSection";
 import { ImplementationSection } from "./components/ImplementationSection";
-import { AccountabilitySection } from "./components/AccountabilitySection";
-import { WhySection } from "./components/WhySection";
-import { FeedbackSection } from "./components/FeedbackSection";
-import { FinalSection } from "./components/FinalSection";
+import { MovementAndVoteSection } from "./components/MovementAndVoteSection";
 import { Footer } from "./components/Footer";
-import { candidateConfig, getWhatsAppUrl } from "./config/candidateConfig";
-import { MessageCircle, ArrowUp } from "lucide-react";
+import { candidateConfig } from "./config/candidateConfig";
+import { MessageCircle } from "lucide-react";
 
 export default function App() {
   const [showFloatingButton, setShowFloatingButton] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowFloatingButton(window.scrollY > 400);
+      setShowFloatingButton(window.scrollY > 450);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-[#172B45] selection:bg-[#C9A34A]/25 selection:text-[#092C5C]">
-      {/* 1. Sticky Navigation Bar */}
+    <div className="min-h-screen flex flex-col bg-[#FFFFFF] text-[#111111] selection:bg-[#84E026]/35 selection:text-[#111111]">
+      {/* Sticky Navigation Bar */}
       <Navbar />
 
       {/* Main Content Sections */}
       <main className="flex-1">
-        {/* 2. Hero Section & Verified Experience Highlights */}
+        {/* 1. Home & Vision Hero + Verified Experience Record + Movement CTA #1 */}
         <HeroSection />
 
-        {/* 3. About Mr. Clarity & 5 Identity Cards */}
+        {/* 2. About Me (Mr. Clarity) */}
         <AboutSection />
 
-        {/* 4. Leadership Journey Timeline (100L - 400L) */}
+        {/* 3. My Leadership Journey (100L - 400L) */}
         <JourneySection />
 
-        {/* 5. The REBIRTH LEGACY Agenda (7 REBIRTH Pillars & 6 LEGACY Principles) */}
+        {/* 4. The Vision (Central Student Philosophy & REBIRTH vs LEGACY) */}
+        <VisionSection />
+
+        {/* 5. My Agenda (13-Pillar Overview Grid + CTA #2 + Full Expandable Agenda + LEGACY Principles + CTA #5) */}
         <AgendaSection />
 
-        {/* 6. From Vision to Implementation (4 Stages) */}
+        {/* 6. Student Opportunities (Talent & Opportunity Hub + CTA #3, Collaboration & Agency Initiative + CTA #4) */}
+        <OpportunitiesSection />
+
+        {/* 7. How I Intend to Approach Implementation & Accountability */}
         <ImplementationSection />
 
-        {/* 7. Accountability Section & Initiative Progress Tracker */}
-        <AccountabilitySection />
-
-        {/* 8. Why REBIRTH? Why LEGACY? */}
-        <WhySection />
-
-        {/* 9. Questions and Feedback (Direct WhatsApp Integration) */}
-        <FeedbackSection />
-
-        {/* 10. Final Call to Action Section */}
-        <FinalSection />
+        {/* 8. Join the Movement & Vote for Mr. Clarity */}
+        <MovementAndVoteSection />
       </main>
 
-      {/* 11. Institutional Footer */}
+      {/* Footer with Movement CTA #6 */}
       <Footer />
 
-      {/* Floating Fast-Access WhatsApp Button on Mobile & Desktop */}
+      {/* Floating Quick-Access WhatsApp Movement Button */}
       {showFloatingButton && (
         <aside
-          aria-label="Direct consultation"
-          className="fixed bottom-6 right-6 z-40 flex items-center gap-2 group animate-in fade-in slide-in-from-bottom-3 duration-200"
+          aria-label="Join the REBIRTH LEGACY WhatsApp Movement"
+          className="fixed bottom-5 right-5 z-40"
         >
           <a
-            href={getWhatsAppUrl("general")}
+            href={candidateConfig.whatsappGroupUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-200 text-xs font-semibold uppercase tracking-wider"
-            aria-label="Message Mr. Clarity on WhatsApp"
+            className="inline-flex items-center gap-2 px-4 py-3 rounded-md bg-[#84E026] hover:bg-[#74CC1A] text-[#111111] border border-[#111111] shadow-md transition-colors text-xs font-extrabold uppercase tracking-wider"
+            aria-label="Join the REBIRTH LEGACY WhatsApp Group"
           >
-            <MessageCircle className="w-5 h-5 fill-white text-emerald-600" />
-            <span className="hidden sm:inline">Message Mr. Clarity</span>
+            <MessageCircle className="w-4 h-4 shrink-0" />
+            <span className="hidden sm:inline">Join WhatsApp Group</span>
           </a>
         </aside>
       )}

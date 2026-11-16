@@ -16,7 +16,8 @@ export interface CandidateConfig {
   department: string;
   association: string;
   philosophy: string;
-  whatsappNumber: string; // International format without '+' (e.g., '2348123456789')
+  whatsappNumber: string; // International format without '+' (e.g., '2348051780169')
+  whatsappGroupUrl: string;
   email: string;
   portfolioUrl: string;
   socials: {
@@ -42,7 +43,7 @@ export interface CandidateConfig {
 export const candidateConfig: CandidateConfig = {
   name: "ONIFADE SULAIMAN IPESOLA",
   popularName: "MR. CLARITY",
-  title: "NACOS Presidential Aspirant",
+  title: "Aspiring NACOS President, OOU Chapter",
   campaignName: "REBIRTH LEGACY",
   tagline: "RENEW. REBUILD. LEAVE A LEGACY.",
   institution: "Olabisi Onabanjo University (OOU)",
@@ -51,9 +52,9 @@ export const candidateConfig: CandidateConfig = {
   association: "Nigerian Association of Computing Students (NACOS)",
   philosophy: "CLARITY CREATES DIRECTION. DIRECTION CREATES PROGRESS.",
   
-  // WhatsApp Contact Configuration
-  // Configurable phone number for direct student inquiries and constructive feedback
+  // WhatsApp Contact & Official Community Group Configuration
   whatsappNumber: "2348051780169",
+  whatsappGroupUrl: "https://chat.whatsapp.com/EbHlsYgqvTTKf02c1Av5TH?s=cl&p=a&mlu=0",
   email: "ipesolasulaiman@gmail.com",
   portfolioUrl: "https://claritydigital.academy",
 
