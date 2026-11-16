@@ -18,6 +18,7 @@ export interface CandidateConfig {
   philosophy: string;
   whatsappNumber: string; // International format without '+' (e.g., '2348051780169')
   whatsappGroupUrl: string;
+  siteUrl: string;
   email: string;
   portfolioUrl: string;
   socials: {
@@ -55,6 +56,7 @@ export const candidateConfig: CandidateConfig = {
   // WhatsApp Contact & Official Community Group Configuration
   whatsappNumber: "2348051780169",
   whatsappGroupUrl: "https://chat.whatsapp.com/EbHlsYgqvTTKf02c1Av5TH?s=cl&p=a&mlu=0",
+  siteUrl: "https://rebirthlegacyagenda27.vercel.app",
   email: "ipesolasulaiman@gmail.com",
   portfolioUrl: "https://claritydigital.academy",
 
