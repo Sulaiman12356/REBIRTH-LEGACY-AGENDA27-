@@ -6,7 +6,7 @@
  * Association: Nigerian Association of Computing Students (NACOS)
  */
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
 import { AboutSection } from "./components/AboutSection";
@@ -18,19 +18,9 @@ import { ImplementationSection } from "./components/ImplementationSection";
 import { MovementAndVoteSection } from "./components/MovementAndVoteSection";
 import { Footer } from "./components/Footer";
 import { candidateConfig } from "./config/candidateConfig";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, ArrowUpRight } from "lucide-react";
 
 export default function App() {
-  const [showFloatingButton, setShowFloatingButton] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowFloatingButton(window.scrollY > 450);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col bg-[#FFFFFF] text-[#111111] selection:bg-[#84E026]/35 selection:text-[#111111]">
       {/* Sticky Navigation Bar */}
@@ -66,24 +56,23 @@ export default function App() {
       {/* Footer with Movement CTA #6 */}
       <Footer />
 
-      {/* Floating Quick-Access WhatsApp Movement Button */}
-      {showFloatingButton && (
-        <aside
-          aria-label="Join the REBIRTH LEGACY WhatsApp Movement"
-          className="fixed bottom-5 right-5 z-40"
+      {/* Static Fixed WhatsApp Group Button — Always Visible on Mobile & Desktop */}
+      <aside
+        aria-label="Join the REBIRTH LEGACY WhatsApp Group"
+        className="fixed bottom-4 right-4 sm:bottom-5 sm:right-5 z-40"
+      >
+        <a
+          href={candidateConfig.whatsappGroupUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2.5 sm:px-5 sm:py-3 rounded-md bg-[#84E026] hover:bg-[#74CC1A] text-[#111111] border-2 border-[#111111] shadow-lg transition-colors text-xs font-extrabold uppercase tracking-wider whitespace-nowrap"
+          aria-label="Join the REBIRTH LEGACY WhatsApp Group"
         >
-          <a
-            href={candidateConfig.whatsappGroupUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-3 rounded-md bg-[#84E026] hover:bg-[#74CC1A] text-[#111111] border border-[#111111] shadow-md transition-colors text-xs font-extrabold uppercase tracking-wider"
-            aria-label="Join the REBIRTH LEGACY WhatsApp Group"
-          >
-            <MessageCircle className="w-4 h-4 shrink-0" />
-            <span className="hidden sm:inline">Join WhatsApp Group</span>
-          </a>
-        </aside>
-      )}
+          <MessageCircle className="w-4 h-4 shrink-0" />
+          <span>Join WhatsApp Group</span>
+          <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
+        </a>
+      </aside>
     </div>
   );
 }

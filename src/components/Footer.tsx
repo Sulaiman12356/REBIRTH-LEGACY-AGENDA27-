@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#111111] text-[#FFFFFF]/80 pt-14 pb-10">
+    <footer className="bg-[#111111] text-[#FFFFFF]/80 pt-14 pb-24 sm:pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* PLACEMENT #6: WhatsApp Movement Banner inside Footer */}
         <div className="p-6 rounded-lg bg-[#FFFFFF]/5 border border-[#FFFFFF]/15 mb-12 flex flex-col md:flex-row md:items-center justify-between gap-4">
